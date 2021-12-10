@@ -3,7 +3,7 @@
 module Logidze # :nodoc:
   # Provide methods to attach meta information
   module Meta
-    def with_meta(meta, transactional: true, &block)
+    def with_meta(transactional: true, **meta, &block)
       wrapper = transactional ? MetaWithTransaction : MetaWithoutTransaction
       wrapper.wrap_with(meta, &block)
     end
